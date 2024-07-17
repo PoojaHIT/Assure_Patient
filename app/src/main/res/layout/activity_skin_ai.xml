@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/litegrey"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SkinAiActivity">
+
+    <RelativeLayout
+        android:background="@color/liteblue"
+        android:id="@+id/topback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_bottom_rounded"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/img_back_skin" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Your Skin Analysis"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/topback"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:paddingBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:background="@color/liteblue">
+
+                <ImageView
+                    android:layout_width="157dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/name_logo" />
+
+
+
+            </FrameLayout>
+
+    <LinearLayout
+        android:background="@drawable/bg_twentyfive_rounded"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_marginTop="12dp"
+                android:layout_height="100dp"
+                >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_pic"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:layout_gravity="center"
+                android:src="@drawable/img_girl"
+                app:civ_circle_background_color="@color/white" />
+
+                <com.moos.library.CircleProgressView
+                    android:id="@+id/txt_skin_score"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:circleBroken="false"
+                    app:end_color="@color/liteblue"
+                    app:end_progress="100"
+                    app:isTracked="true"
+                    app:progressTextSize="0sp"
+                    app:start_color="@color/liteblue"
+                    app:start_progress="0"
+                    app:trackColor="@color/darkgray"
+                    app:track_width="5dp">
+
+
+                </com.moos.library.CircleProgressView>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Assure Skin Health Score"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+
+            >
+            <RelativeLayout
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_background_blue" />
+                <LinearLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt_skin_health_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+       android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Overall Skin Scores"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_weight="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+
+
+
+                <LinearLayout
+
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+
+                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.moos.library.CircleProgressView
+                            android:id="@+id/txt_oxgyen"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@color/litegrey"
+                            app:circleBroken="false"
+                            app:end_color="@color/liteblue"
+                            app:end_progress="100"
+                            app:isTracked="true"
+                            app:progressTextSize="14sp"
+                            app:start_color="@color/liteblue"
+                            app:start_progress="0"
+                            app:trackColor="@color/darkgray"
+                            app:track_width="5dp" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Oxygen"
+                        android:textSize="16sp"
+                        android:textColor="@color/bkblack"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+
+
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+
+                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.moos.library.CircleProgressView
+                            android:id="@+id/txt_dark_circle"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="12dp"
+                            app:circleBroken="false"
+                            app:end_color="@color/liteblue"
+                            app:end_progress="0"
+                            app:isTracked="true"
+                            app:progressTextSize="14sp"
+                            app:start_color="@color/liteblue"
+                            app:start_progress="0"
+                            app:trackColor="@color/darkgray"
+                            app:track_width="5dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:textColor="@color/bkblack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dark Circle"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+
+
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+
+                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.moos.library.CircleProgressView
+                            android:id="@+id/txt_dark_spot"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="12dp"
+                            app:circleBroken="false"
+                            app:end_color="@color/liteblue"
+                            app:end_progress="100"
+                            app:isTracked="true"
+                            app:progressTextSize="14sp"
+                            app:start_color="@color/liteblue"
+                            app:start_progress="0"
+                            app:trackColor="@color/darkgray"
+                            app:track_width="5dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:textColor="@color/bkblack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dark Spot"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+
+                    >
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <com.moos.library.CircleProgressView
+                            android:id="@+id/txt_acne"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="12dp"
+                            app:circleBroken="false"
+                            app:end_color="@color/liteblue"
+                            app:end_progress="100"
+                            app:isTracked="true"
+                            app:progressTextSize="14sp"
+                            app:start_color="@color/liteblue"
+                            app:start_progress="0"
+                            app:trackColor="@color/darkgray"
+                            app:track_width="5dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:textColor="@color/bkblack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Acne"
+
+                        android:textSize="16sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_view_all"
+           android:visibility="gone"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+
+                        android:id="@+id/circlee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txt_uneven_skin"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Uneven Skin"
+                            android:textSize="16sp"
+                            android:textColor="@color/bkblack"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txt_skin_dullness"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:textColor="@color/bkblack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Skin Dullness"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txt_face_wrinkle"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:textColor="@color/bkblack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Face Wrinkle"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txtt_crowsfeet"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:textColor="@color/bkblack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Crowsfeet"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txtt_eye_wrinkle"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Eye Wrinkle"
+                            android:textSize="16sp"
+                            android:textColor="@color/bkblack"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txtt_face_fairness"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:textColor="@color/bkblack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Face Firmness"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txtt_smoothness"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:textColor="@color/bkblack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Smoothness"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+
+                        >
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <com.moos.library.CircleProgressView
+                                android:id="@+id/txtt_hydration"
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_marginTop="12dp"
+                                app:circleBroken="false"
+                                app:end_color="@color/liteblue"
+                                app:end_progress="100"
+                                app:isTracked="true"
+                                app:progressTextSize="14sp"
+                                app:start_color="@color/liteblue"
+                                app:trackColor="@color/darkgray"
+                                app:start_progress="0"
+                                app:track_width="5dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:textColor="@color/bkblack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hydration"
+                            android:textSize="16sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_view_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="View all"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_skin_report"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/chat_float"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_btn_rounded_blue"
+                android:elevation="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:gravity="center"
+                android:text="View My Skin Reports"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:gravity="bottom">-->
+
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/chat_float"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:src="@drawable/img_live_chat" />-->
+
+
+<!--    </RelativeLayout>-->
+
+
+
+
+
+
+
+
+</RelativeLayout>

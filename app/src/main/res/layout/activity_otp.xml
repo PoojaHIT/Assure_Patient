@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.OtpActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="OTP Verification"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/nunito_medium"
+        android:text="Enter the OTP sent on"
+        android:textColor="#9098B1"
+        android:textSize="16sp" />
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_phone"
+            />
+    </LinearLayout>
+
+    <com.chaos.view.PinView
+        android:id="@+id/otp_pin"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="30dp"
+        android:cursorVisible="true"
+        android:gravity="center"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:hideLineWhenFilled="false"
+        app:itemCount="6"
+        app:itemHeight="40dp"
+        app:itemRadius="8dp"
+        app:itemSpacing="10dp"
+        app:itemWidth="40dp"
+        app:lineColor="#E3E3E3"
+        app:viewType="rectangle" />
+
+    <TextView
+        android:id="@+id/txt_continue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_btn_rounded"
+        android:elevation="10dp"
+        android:fontFamily="@font/nunito_medium"
+        android:gravity="center"
+        android:text="Continue"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_resend_otp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_medium"
+            android:text="Did not receive OTP? "
+            android:textColor="@color/theme_color" />
+
+        <TextView
+            android:id="@+id/txt_resend_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Resend"
+            android:textColor="@color/theme_color" />
+
+    </LinearLayout>
+
+</LinearLayout>

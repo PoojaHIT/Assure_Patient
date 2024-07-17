@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Activity.BlogDetailsActivity">
+
+    <LinearLayout
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_bottom_rounded"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/img_back_skin" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Blogs"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="18dp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.3"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="SKIN CARE"
+                    android:textColor="@color/liteorange"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txt_tittle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Happy Mother's Day—Meet the Moms Behind Your Favorite Brands"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_userprofile"
+                        android:layout_width="50dp"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/img_author" />
+
+
+                    <TextView
+                        android:id="@+id/txt_name_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_toEndOf="@+id/img_userprofile"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="Rakesh"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/txt_hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_toEndOf="@+id/txt_name_author"
+                        android:fontFamily="@font/nunito_regular"
+                        android:text="1 hour ago"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_para"
+                    android:alpha="0.6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="@string/para"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_margin="10dp"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:id="@+id/round_image"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_para_two"
+                    android:alpha="0.6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="@string/paratwo"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

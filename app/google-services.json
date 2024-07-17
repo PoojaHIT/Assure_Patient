@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "201801941036",
+    "firebase_url": "https://assure-app-8638a-default-rtdb.firebaseio.com",
+    "project_id": "assure-app-8638a",
+    "storage_bucket": "assure-app-8638a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201801941036:android:83150da97bb4bc984dd189",
+        "android_client_info": {
+          "package_name": "com.hit.assure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201801941036-u75ovcajso6m8fbah5mseb3o61rttgsb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hit.assure",
+            "certificate_hash": "023680078505a5b165bd10fd31926d862d17c9cd"
+          }
+        },
+        {
+          "client_id": "201801941036-lt2su3dneel9mj2md4o74hd3qhobg2e2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3B-18LNnDwEXieXVhmbL6GfUZC0owrFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201801941036-lt2su3dneel9mj2md4o74hd3qhobg2e2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

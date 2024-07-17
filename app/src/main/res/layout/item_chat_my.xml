@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/dark_gray"
+        android:visibility="gone"
+        android:id="@+id/datetxt"/>
+
+    <LinearLayout
+        android:id="@+id/ll_mess"
+        android:orientation="horizontal"
+        android:layout_below="@+id/datetxt"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/msgtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_blue_stroke_rounded"
+        android:fontFamily="@font/nunito_regular"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:text="Your message"
+        android:textAlignment="textStart"
+        android:textColor="#006E92"
+        android:textSize="15dp"
+        tools:ignore="RtlCompat" />
+
+        <View
+            android:layout_gravity="center"
+            android:layout_width="22dp"
+            android:layout_height="1dp"
+            android:background="#55C6EA"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ll_mess"
+        android:textSize="10dp"
+        android:id="@+id/message_seen"
+        android:textColor="@color/dark_gray"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

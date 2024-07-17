@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Activity.ToggleApplicationFormActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="74dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:background="@drawable/app_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Consultation Form"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Is there any Family History of hair loss?"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <ToggleButton
+                    android:id="@+id/toogle_hair"
+                    android:layout_width="67dp"
+                    android:layout_height="36dp"
+                    android:layout_margin="16dp"
+                    android:textSize="14sp"
+                    android:onClick="onToggleClicked"
+                    android:background="@drawable/toggle_button"
+                    android:textOff=""
+                    android:textOn=""
+
+                    />
+
+                <!--                <com.github.angads25.toggle.widget.LabeledSwitch-->
+                <!--                    android:id="@+id/toogle_hair"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="32dp"-->
+                <!--                    android:layout_margin="16dp"-->
+                <!--                    android:textSize="14sp"-->
+                <!--                    app:on="true"-->
+                <!--                    app:textOn="Yes"-->
+                <!--                    app:textOff="No"-->
+                <!--                    app:colorOn="@color/liteorange"-->
+                <!--                    app:colorOff="#959595"-->
+                <!--                    app:colorBorder="@color/liteorange"-->
+                <!--                    />-->
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Is the hair loss still going on?"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:gravity="right">
+
+                    <ToggleButton
+                        android:id="@+id/toogle_still_going_on"
+                        android:layout_width="67dp"
+                        android:layout_height="36dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:onClick="onToggleClickedStill"
+                        android:background="@drawable/toggle_button"
+                        android:textOff=""
+                        android:textOn=""
+
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Are you on any medication?"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:gravity="right">
+
+                    <ToggleButton
+                        android:id="@+id/toogle_medication"
+                        android:layout_width="67dp"
+                        android:layout_height="36dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:background="@drawable/toggle_button"
+                        android:onClick="onToggleClickedMedication"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_specify"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_selectable"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:hint="If, Yes Specify"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:textColor="#9098B1"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Any Known Medical Problem?"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="40dp"
+                    android:gravity="right">
+
+                    <ToggleButton
+                        android:id="@+id/toogle_medicational"
+                        android:layout_width="67dp"
+                        android:layout_height="36dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:background="@drawable/toggle_button"
+                        android:onClick="onToggleClickedMedical"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_medical"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_selectable"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:hint="Medical problem"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:textColor="#9098B1"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Are you known to?"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Diabetic"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <ToggleButton
+                        android:id="@+id/toogle_diabetic"
+                        android:layout_width="50dp"
+                        android:layout_height="22dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:background="@drawable/small_toggle_button"
+                        android:onClick="onToggleClickedDiabetic"
+                        android:textOff=""
+                        android:textOn=""/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Hypertensive"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <ToggleButton
+                        android:id="@+id/toogle_hypertensive"
+                        android:layout_width="50dp"
+                        android:layout_height="22dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:background="@drawable/small_toggle_button"
+                        android:onClick="onToggleClickedHyper"
+                        android:textOff=""
+                        android:textOn=""
+                       />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Smoking"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <ToggleButton
+                        android:id="@+id/toogle_smoking"
+                        android:layout_width="50dp"
+                        android:layout_height="22dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:background="@drawable/small_toggle_button"
+                        android:onClick="onToggleClickedSmoking"
+                        android:textOff=""
+                        android:textOn="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="Drinking"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <ToggleButton
+                        android:id="@+id/toogle_driniking"
+                        android:layout_width="50dp"
+                        android:layout_height="22dp"
+                        android:layout_margin="16dp"
+                        android:textSize="14sp"
+                        android:background="@drawable/small_toggle_button"
+                        android:onClick="onToggleClickedDrinking"
+                        android:textOff=""
+                        android:textOn=""
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:gravity="bottom">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/check_box"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="I agree to the"
+                        android:textColor="#9098B1"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="terms"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="&amp;"
+                        android:textColor="#9098B1"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:fontFamily="@font/nunito_bold"
+                        android:text="condition"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_save"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_btn_rounded"
+                android:elevation="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:gravity="center"
+                android:text="Save"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/two_balls" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

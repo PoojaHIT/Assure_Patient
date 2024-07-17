@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popupNumber"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/rlAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/dark_orange"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/txtHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="Select City"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/edtSearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlAppBar"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white"
+        android:drawableStart="@drawable/bg_searchbtn"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:hint="Search"
+        android:imeOptions="actionSearch"
+        android:padding="8dp"
+        android:singleLine="true"
+        android:textColor="@color/grey" />
+
+    <RelativeLayout
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtSearch"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:padding="5sp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:id="@+id/llView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/grey"
+                android:dividerPadding="2dp"
+                android:orientation="vertical"
+                android:showDividers="middle" />
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scroll" />
+    <TextView
+        android:id="@+id/txt_nopartner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_below="@id/scroll"/>
+</RelativeLayout>

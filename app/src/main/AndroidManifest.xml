@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hit.assure">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".Util.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Assure"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Activity.PrecriptionDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".PrecriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ZoomImage"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BannerWebviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CompletedDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ConsultationFormActivity"
+            android:exported="false" />
+        <!--
+        <activity
+            android:name=".Activity.uploadSkinDemo"
+            android:exported="false" />
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.VistNearByClinicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ToggleApplicationFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BlogSearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.TestimonialsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.RecommendationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BlogDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CancelSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VideoCallingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CancelAppointActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MyJourney.DoctorlistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.PaymentfailedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.FailedActivity"
+            android:exported="false" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".Activity.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SkinAiImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.UploadSkinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SkinAiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DoctorDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.OurDoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AddAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DietActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VisitClinic.BookClinicAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MyJourney.MyjourneyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VisitClinic.VisitclinicTimeslotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VisitClinic.VisitClinicDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VisitClinic.VisitCliniclistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VirtualConsult.BookVirtualConsultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VirtualConsult.SelectTimeSlotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VirtualConsult.VirtualConsultantlistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.VirtualConsult.ConsultantDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ShiptoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ProductdetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.OtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MultipleMediaPicker.Gallery"
+            android:exported="false" />
+        <activity
+            android:name=".MultipleMediaPicker.OpenGallery"
+            android:exported="false" /> <!-- Branch INIT -->
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:exported="false"
+            android:label="@string/app_name" /> <!-- Branch init -->
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name=".Activity.ApplicationFormActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.MyProgressSessionImagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.ViewPrescriptionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.GalleryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.NotificationActivity"
+            android:exported="true" />
+        <!--
+        <activity
+            android:name=".Activity.ImageCrop.ZoomCroppingActivity"
+            android:exported="false" />
+        -->
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_435WvLMOQJA7AI" />
+
+        <activity
+            android:name="com.razorpay.CheckoutActivity"
+            android:exported="true">
+
+            <!-- Your intent filters go here -->
+        </activity>
+
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true">
+
+            <!-- If you know the specific intent filters, add them here -->
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

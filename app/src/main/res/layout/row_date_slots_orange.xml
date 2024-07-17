@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/ll_acne"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_btn_normal_slot_org"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp">
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_day"-->
+<!--            android:padding="10dp"-->
+<!--            android:fontFamily="@font/nunito_regular"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Today,"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:gravity="center"/>-->
+
+        <RadioButton
+            android:id="@+id/txt_time"
+            android:padding="10dp"
+            android:fontFamily="@font/nunito_regular"
+            android:textStyle="bold"
+            android:button="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 March"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_no_slot_availble"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:text="No Slots Available"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+

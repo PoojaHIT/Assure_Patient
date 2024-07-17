@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_orange_stroke"
+    android:layout_marginBottom="14dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Vishal Jain"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="I have undergone the treatment and I am satisfied with results. The Assureclinic staff in Bangalore clinic is professional, caring and very supportive. Thank you Assure clinic I recommend Assure clinic for hair loss 😊😊"
+            android:textColor="#9098B1"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

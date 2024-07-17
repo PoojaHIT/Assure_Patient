@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/litegrey"
+    android:orientation="vertical"
+    tools:context=".Activity.VirtualConsult.VirtualConsultantlistActivity">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_bottom_rounded"
+        android:elevation="2dp">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="14dp"
+            android:background="@drawable/img_back_skin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/img_back"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Find &amp; Book"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_medium"
+                android:paddingStart="10dp"
+                android:text="LOCATION"
+                android:textColor="@color/white"
+                android:textSize="9sp" />
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:drawableEnd="@drawable/bg_down_arrow"-->
+            <!--                android:drawablePadding="4dp"-->
+            <!--                android:fontFamily="@font/nunito_bold"-->
+            <!--                android:gravity="center"-->
+            <!--                android:paddingEnd="10dp"-->
+            <!--                android:text="Mumbai"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="12sp" />-->
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/spinner_location"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/spinner_background_color" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:elevation="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_rounded_edittext">
+
+        <TextView
+            android:id="@+id/edt_search"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:background="@drawable/bg_rounded_edittext"
+            android:editable="false"
+            android:fontFamily="@font/nunito_regular"
+            android:gravity="center"
+            android:hint="Search consultation, clinics"
+            android:inputType="none"
+            android:paddingStart="30dp"
+            android:paddingEnd="10dp"
+            android:textColor="#8D8888"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/img_search"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:background="@drawable/search_button"
+            android:clickable="false" />
+
+
+
+    </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_virtual_consultant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_search_doctor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

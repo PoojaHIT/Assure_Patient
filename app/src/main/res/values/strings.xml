@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Assure Clinic</string>
+
+    <string name="facebook_app_id">5850814578374671</string>
+    <string name="fb_login_protocol_scheme">fb5850814578374671</string>
+    <string name="facebook_client_token">e6f259e67325607dc491394615456bc4</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="paratwo">Speaking to and getting together with my children and grandchildren on a regular basis are total must-haves for me as a mom. I am very grateful to have all four of our adult children living within several miles of us. I feel that constantly being exposed to a</string>
+
+    <string name="para">Mother’s Day is all about showing the mom in your life how much you appreciate all she does. We’re celebrating Mother’s Day by honoring some of our mother-founded brands. Learn more about their mom-must &#38; how navigate entrepreneurship as parents.</string>
+
+    <string-array name="hear_about">
+        <item>Select the Option</item>
+        <item>Newspaper</item>
+        <item>Walk in</item>
+        <item>Internet</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="internet">
+        <item>Instagram</item>
+        <item>YouTube</item>
+        <item>Twitter</item>
+        <item>TikTok</item>
+        <item>Pinterest</item>
+        <item>Snapchat</item>
+    </string-array>
+
+    <string-array name="newspaperlist">
+        <item>The Times of India</item>
+        <item>Economic Times</item>
+        <item>Financial Express</item>
+        <item>Indian Express</item>
+        <item>Mumbai Mirror</item>
+        <item>Mid-day</item>
+        <item>DNA (Daily News and Analysis)</item>
+        <item>Business-Standards</item>
+        <item>Hindustan Times</item>
+        <item>Free Press Journal</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>

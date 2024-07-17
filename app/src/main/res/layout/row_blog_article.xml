@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_margin="4dp"
+    android:elevation="8dp"
+    android:background="@drawable/bg_white_rounded_border"
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_margin="10dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="223dp"
+        android:layout_height="162dp"
+        android:id="@+id/round_image"
+        android:src="@drawable/img_blog_article"
+        app:riv_corner_radius="10dip"
+        app:riv_border_color="#333333"
+        app:riv_mutate_background="true"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:textAllCaps="true"
+            android:fontFamily="@font/nunito_regular"
+            android:text="SKIN CARE"
+            android:textColor="@color/liteorange"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:visibility="gone"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Happy Mother's Day—Meet the Moms Behind..."
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_userprofile"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/img_girl" />
+
+            <LinearLayout
+                android:layout_toEndOf="@+id/img_userprofile"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/txt_name_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toEndOf="@+id/img_userprofile"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="Rakesh"
+                    android:textColor="@color/fullblack"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@+id/txt_name_author"
+                    android:fontFamily="@font/nunito_regular"
+                    android:text="1 hour ago"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

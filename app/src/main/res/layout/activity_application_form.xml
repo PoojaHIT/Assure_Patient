@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ApplicationFormActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="74dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:background="@drawable/app_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Consultation Form"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+
+            <EditText
+                android:id="@+id/edt_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_selectable"
+                android:drawableStart="@drawable/fullname_selec_unselec"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:hint="First Name"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:textColor="#9098B1"
+                android:textSize="14sp"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/edt_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_selectable"
+                android:drawableStart="@drawable/fullname_selec_unselec"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:hint="Last Name"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:textColor="#9098B1"
+                android:textSize="14sp"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/editMobile"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_selectable"
+                android:drawableStart="@drawable/call_selec_unselec"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:hint="Your Mobile number"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:textColor="#9098B1"
+                android:textSize="14sp"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/editMail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edit_text_selectable"
+                android:drawableStart="@drawable/img_mail"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:hint="Your Email Id"
+                android:inputType="textEmailAddress"
+                android:paddingStart="8dp"
+                android:singleLine="true"
+                android:textColor="#9098B1"
+                android:textSize="14sp"
+                tools:ignore="RtlSymmetry" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtxt_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_selectable"
+                    android:fontFamily="@font/nunito_medium"
+                    android:hint="Enter your age"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="How do you hear about us?"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/edit_text_selectable">
+
+                    <Spinner
+                        android:id="@+id/sp_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/spinner_arrow"
+                        android:fontFamily="@font/nunito_medium"
+                        android:hint="Enter your description"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#9098B1"
+                        android:textColorHint="#343C44"
+                        android:textSize="14sp"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_spinner_subcat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+
+                    android:background="@drawable/edit_text_selectable"
+                   >
+
+                    <Spinner
+                        android:id="@+id/sp_subcat"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/spinner_arrow"
+                        android:fontFamily="@font/nunito_medium"
+                        android:hint="Enter your description"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#9098B1"
+                        android:textColorHint="#343C44"
+                        android:textSize="14sp"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_spinner_internet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edit_text_selectable"
+                    android:visibility="gone">
+
+                    <Spinner
+                        android:id="@+id/sp_internet"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/spinner_arrow"
+                        android:fontFamily="@font/nunito_medium"
+                        android:hint="Enter your description"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#9098B1"
+                        android:textColorHint="#343C44"
+                        android:textSize="14sp"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editotherr"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_selectable"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/nunito_medium"
+                    android:hint="Other"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:textColor="#9098B1"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Centre"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+
+                    android:background="@drawable/edit_text_selectable">
+
+                    <Spinner
+                        android:id="@+id/sp_centre"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/spinner_arrow"
+                        android:fontFamily="@font/nunito_medium"
+                        android:hint="Enter your description"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#9098B1"
+                        android:textColorHint="#343C44"
+                        android:textSize="14sp"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_spinner_subcatt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edit_text_selectable"
+                    android:visibility="gone">
+
+                    <Spinner
+                        android:id="@+id/sp_subcatt"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/spinner_arrow"
+                        android:fontFamily="@font/nunito_medium"
+                        android:hint="Enter your description"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#9098B1"
+                        android:textColorHint="#343C44"
+                        android:textSize="14sp"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_spinner_internett"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edit_text_selectable"
+                    android:visibility="gone">
+
+                    <Spinner
+                        android:id="@+id/sp_internett"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/spinner_arrow"
+                        android:fontFamily="@font/nunito_medium"
+                        android:hint="Enter your description"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="#9098B1"
+                        android:textColorHint="#343C44"
+                        android:textSize="14sp"
+                        tools:ignore="RtlSymmetry" />
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editother"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_selectable"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/nunito_medium"
+                    android:hint="Other"
+                    android:inputType="text"
+                    android:paddingStart="8dp"
+                    android:singleLine="true"
+                    android:textColor="#9098B1"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    tools:ignore="RtlSymmetry" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_next"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_btn_rounded"
+                android:elevation="10dp"
+                android:fontFamily="@font/nunito_medium"
+                android:gravity="center"
+                android:text="Next"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/img_circle" />
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/img_white_circle" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

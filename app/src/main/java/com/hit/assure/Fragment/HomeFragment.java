@@ -305,7 +305,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Serv
                     item.answer = data.optString("answers");
                     item.level = data.optString("level");
                     map.put(data.optString("question"), item);
-
                 }
 
                 Save_Q_A(map);
@@ -374,7 +373,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Serv
                             }
                         });
                     }
-
                 }
                 break;
             case BLOG:

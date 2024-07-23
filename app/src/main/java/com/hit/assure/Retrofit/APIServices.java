@@ -23,6 +23,7 @@ import com.hit.assure.Model.Notification.NotificationResponse;
 import com.hit.assure.Model.NotificationCountResponse;
 import com.hit.assure.Model.NotificationReadResponse;
 import com.hit.assure.Model.OnlyResponse;
+import com.hit.assure.Model.OrdeDoctorModel.OurDoctorResponse;
 import com.hit.assure.Model.OtpVerification.OtpVerificationResponse;
 import com.hit.assure.Model.PatientBookingDetails.PatientBookingDetailsResponse;
 import com.hit.assure.Model.PatientDetailsFrom.PatientDetailsResponse;
@@ -208,6 +209,9 @@ public interface APIServices {
                                                    @Field("longitude") String longitude,
                                                    @Field("page") String page,
                                                    @Field("keyword") String keyword);
+    @FormUrlEncoded
+    @POST("doctor/our_doctor_list")
+    Call<OurDoctorResponse> getoutDoctorlist(@Field("doctor_cat") String doctor_cat);
 
     @FormUrlEncoded
     @POST("doctor/doctor_slot")

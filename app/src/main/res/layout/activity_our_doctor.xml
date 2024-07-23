@@ -32,7 +32,7 @@
             android:layout_centerInParent="true"
             android:fontFamily="@font/nunito_bold"
             android:text="Our Doctors"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
     </RelativeLayout>
@@ -46,19 +46,21 @@
         android:weightSum="3">
 
         <LinearLayout
+            android:id="@+id/ll_hair"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingTop="6dp">
+            android:padding="2dp"
+            >
 
             <TextView
+                android:id="@+id/hair_count"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center_vertical"
-                android:text="20+"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -69,35 +71,36 @@
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center_vertical"
-                android:text="Dermatologist"
+                android:text="Hair Advisors"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 tools:ignore="RtlCompat" />
 
         </LinearLayout>
 
         <View
-            android:layout_width="0.8dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
+
             android:background="@color/grey" />
 
         <LinearLayout
+            android:id="@+id/ll_skin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingTop="6dp">
+            android:padding="2dp"
+            >
 
             <TextView
+                android:id="@+id/skin_count"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center_vertical"
-                android:text="45+"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -111,67 +114,59 @@
                 android:text="Skin Advisors"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 tools:ignore="RtlCompat" />
 
         </LinearLayout>
 
         <View
-            android:layout_width="0.8dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
+
             android:background="@color/grey" />
 
         <LinearLayout
-            android:id="@+id/ll_solutions"
+            android:id="@+id/ll_nutri"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingTop="6dp">
+            android:padding="2dp"
+            >
 
             <TextView
+                android:id="@+id/count_nutri"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center_vertical"
-                android:text="1 Lakh +"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/txt_qualification"
+                android:id="@+id/txt_nutri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center_vertical"
                 android:maxLines="2"
-                android:text="Happy Clients"
+                android:text="Nutritionist"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 tools:ignore="RtlCompat" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/nunito_medium"
-        android:gravity="center_vertical"
-        android:text="Our Dermatologists"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_ourdoctors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 
 </LinearLayout>

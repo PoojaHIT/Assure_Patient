@@ -5,21 +5,25 @@ import static android.os.Build.VERSION.SDK_INT;
 import static com.hit.assure.Retrofit.Requestor.apiServices;
 import static com.hit.assure.Retrofit.ServerCode.UPDATEUSERDATA;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 
 import android.app.ProgressDialog;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,6 +38,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hit.assure.Activity.VirtualConsult.BookVirtualConsultActivity;
+import com.hit.assure.ImageCrop.CameraImageSave;
 import com.hit.assure.Model.UpdateUserProfile.UpdateUserDataResponse;
 import com.hit.assure.Model.UserDetails.UserDetailsData;
 import com.hit.assure.Model.UserDetails.UserDetailsResponse;
@@ -46,14 +51,18 @@ import com.hit.assure.Retrofit.ServerResponse;
 import com.hit.assure.Util.Constant;
 import com.hit.assure.Util.Helpers;
 import com.hit.assure.Util.PreferenceServices;
+import com.hit.assure.Util.ZoomCroppingActivity;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -79,7 +88,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private List<UserDetailsData> userDetailsDataList;
     private ProgressDialog progressDialog;
     private TextView edtDOB;
+    private static final String[] REQUIRED_PERMISSIONS = {
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
+    private static final int REQUEST_CODE_POSTCROPGALLERY = 3;
+
+    private static final int REQUEST_CODE_PERMISSIONS = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +106,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         PreferenceServices.init(this);
+
+
         inita();
+
+
 
         //  SharedPreferences preferences = getSharedPreferences(Helpers.SHARED_PREF, 0);
         userId = PreferenceServices.getInstance().getUser_id();
@@ -158,8 +179,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             Log.d("", "yyyyyyyyyyy==========");
             //  proceedAfterPermissionPickGallery(PICK_FILE_GALLERY);
 
+            if (!allPermissionsGranted()) {
+                ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
+            } else {
+                // Permissions are already granted
+              //  pickFromGallery();
+                proceedAfterPermissionPickGallery(PICK_FILE_GALLERY);
+            }
 
-            checkRuntimePermissionPickGallery(PICK_FILE_GALLERY);
+          //  checkRuntimePermissionPickGallery(PICK_FILE_GALLERY);
         }
         else if(item_id== R.id.txt_save) {
             if (editTextFirstName.getText().toString().isEmpty()) {
@@ -178,79 +206,32 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 createUID();
             }
         }
-//            case R.id.edtdob:
-//                Calendar now = Calendar.getInstance();
-//                DatePickerDialog dpd = DatePickerDialog.newInstance(
-//                        (DatePickerDialog.OnDateSetListener) EditProfileActivity.this,
-//                        now.get(Calendar.YEAR),
-//                        now.get(Calendar.MONTH),
-//                        now.get(Calendar.DAY_OF_MONTH)
-//                );
-//                dpd.setMaxDate(now);
-//                dpd.setOnDateSetListener(this);
-//                dpd.show(getFragmentManager(), "Datepickerdialog");
-//                break;
-
-        //  }
-    }
-
-
-//    @Override
-//    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-//        edtDOB.setText(String.format("%02d", dayOfMonth) + "-" + String.format("%02d", (monthOfYear + 1)) + "-" + year);
-//        String mDate = String.format("%02d", dayOfMonth) + "-" + String.format("%02d", (monthOfYear + 1)) + "-" + year;
-//
-//        String mAge = getAge(year, monthOfYear, dayOfMonth);
-//        edtxt_age.setText(mAge);
-//
-//    }
-
-
-//    private String getAge(int year, int month, int day) {
-//        Calendar dob = Calendar.getInstance();
-//        Calendar today = Calendar.getInstance();
-//
-//        dob.set(year, month, day);
-//
-//        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
-//
-//        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
-//            age--;
-//        }
-//
-//        Integer ageInt = new Integer(age);
-//        String ageS = ageInt.toString();
-//
-//        return ageS;
-//    }
-
-    private void checkRuntimePermissionPickGallery(int code) {
-        Log.d("","fffffffffff");
-
-        if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(EditProfileActivity.this,
-                        new String[]{Manifest.permission.READ_MEDIA_IMAGES}, REQUEST_PERMISSION_SETTING);
-            }  else {
-                //proceedAfterPermissionPickGallery(code);
-                pickFromGallery();
-            }
-        }
-        else {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(EditProfileActivity.this,
-                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_SETTING);
-            } else if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(EditProfileActivity.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSION_SETTING);
-            }  else {
-                //  proceedAfterPermissionPickGallery(code);
-
-                pickFromGallery();
-            }
-        }
 
     }
+
+
+    private boolean allPermissionsGranted() {
+        for (String permission : REQUIRED_PERMISSIONS) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                pickFromGallery();
+            } else {
+                Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+    }
+
     private void pickFromGallery() {
         CropImage.activity().start(EditProfileActivity.this);
     }
@@ -288,7 +269,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
             }
         }
 
-/*
         if (requestCode == PICK_FILE_GALLERY && resultCode == RESULT_OK && data != null) {
             try {
                 camera_gallery_uri = data.getData();
@@ -298,20 +278,80 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 //    txt_filepath.setText(strImagePath);
                 Log.d("gsdfgergergerg", strImagePath);
 
+
                 Picasso.get()
-                        .load(camera_gallery_uri)
+                        .load(strImagePath)
                         .fit().into(img_userprofile);
-                uploadimage(strImagePath);
+
+
+                startActivityForResult(new Intent(getApplicationContext(), ZoomCroppingActivity.class)
+                        .putExtra("imagepath", strImagePath)
+                        .putExtra("comingfrom", "gallery"), REQUEST_CODE_POSTCROPGALLERY
+                );
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-*/
+
+        if (requestCode == REQUEST_CODE_POSTCROPGALLERY && resultCode == RESULT_OK && data != null) {
+            CameraImageSave cameraSaveImage = new CameraImageSave();
+
+            String filePath = cameraSaveImage.getImagePath();
+
+            try {
+                ContextWrapper cw = new ContextWrapper(getApplicationContext());
+                File directory = cw.getDir("TmsDb", Context.MODE_PRIVATE);
+
+                Bitmap bitmap = cameraSaveImage.getBitmapFromFile(720);
+
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                File imagesFolder = new File(directory, "MyImages");
+                imagesFolder.mkdirs();
+                File  image = new File(imagesFolder, "IMG_" + timeStamp + ".jpg");
+                if (image.exists()) image.delete();
+                try {
+                    FileOutputStream out = new FileOutputStream(image);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+                    out.flush();
+                    out.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+               String strImagePath1 = "" + image;
+                System.out.println("ShopimageSelection class Message, Value of imagePath is ------------> " + strImagePath1);
+                //IMG_PATH1 = imagePath1;
+                byte[]   mByteArr = null;
+                if (bitmap != null) {
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 75, stream);
+                    cameraSaveImage.deleteFromFile();
+                    mByteArr = stream.toByteArray();
+                    bitmap = null;
+                    cameraSaveImage = null;
+                }
+                Bitmap bmp = BitmapFactory.decodeByteArray(mByteArr, 0, mByteArr.length);
+                Log.d("bmp", "" + bmp);
+
+                Picasso.get()
+                        .load(strImagePath1)
+                        .fit().into(img_userprofile);
+
+
+                uploadimage(strImagePath1);
+
+            } catch (Exception e) {
+                Log.e("Exception", "Exception at Create broacast class");
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String getPath(final Context context, final Uri uri) {
-        final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
+        final boolean isKitKat = SDK_INT >= Build.VERSION_CODES.KITKAT;
         if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
             if (isExternalStorageDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
@@ -442,21 +482,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         progressDialog.show();
         progressDialog.setContentView(R.layout.item_loader);
         Objects.requireNonNull(progressDialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
-//        MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
-//        builder.addFormDataPart("user_id", userId);
-//        builder.addFormDataPart("name", editTextFirstName.getText().toString());
-//        builder.addFormDataPart("mobile_no", edtxt_mobile.getText().toString());
-//        builder.addFormDataPart("age", edtxt_age.getText().toString());
-//        builder.addFormDataPart("city", edtxt_city.getText().toString());
-//        builder.addFormDataPart("pincode", edtxt_pincode.getText().toString());
-//        builder.addFormDataPart("landmark", edtxt_landmark.getText().toString());
-//        builder.addFormDataPart("address", edtxt_landmark.getText().toString());
-//        builder.addFormDataPart("profile_pic", new File(strImagePath).getName(), RequestBody.create(MultipartBody.FORM, new File(strImagePath)));
-//
-//        RequestBody requestBody = builder.build();
-//
-//        Log.e("check", String.valueOf(requestBody));
-//        Log.e("checksrr", strImagePath);
+
 
         Call<UpdateUserDataResponse> call = apiServices.getUpdateUserData(userId, editTextFirstName.getText().toString().trim(),
                 edtxt_mobile.getText().toString().trim(), edtxt_age.getText().toString().trim(), edtxt_city.getText().toString().trim(),
@@ -509,6 +535,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 if (response.body() != null) {
                     UserimageResponse resource = response.body();
                     if (resource.getStatus() == 200) {
+
+                        new Requestor(UPDATEUSERDATA, EditProfileActivity.this).getUserdata(userId);
+
                         Toast.makeText(EditProfileActivity.this, "" + resource.getMessage(), Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(EditProfileActivity.this, "" + resource.getMessage(), Toast.LENGTH_SHORT).show();

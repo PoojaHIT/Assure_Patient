@@ -41,3 +41,5 @@
 
 # Gson specific classes
 -keep class com.google.gson.stream.** { *; }
+
+-keep class androidx.appcompat.widget.** { *; }

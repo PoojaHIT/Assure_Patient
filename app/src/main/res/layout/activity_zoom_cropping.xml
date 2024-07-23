@@ -9,8 +9,9 @@
     <FrameLayout
         android:id="@+id/fl_header"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/black">
+        android:layout_height="100dp"
+        android:background="@drawable/bg_bottom_rounded"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -28,7 +29,7 @@
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_gravity="center"
-                     />
+                    android:background="@drawable/img_back_skin" />
 
             </FrameLayout>
 
@@ -39,7 +40,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/nunito_medium"
                 android:gravity="center_vertical"
-                android:text=""
+                android:text="Edit"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -52,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/fl_header"
         android:layout_marginTop="-35dp"
+        android:background="@drawable/bg_white_toprounded_screen"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -169,7 +171,7 @@
 
 
 
-    <com.hit.assure.Activity.ImageCrop.TouchImageView
+    <com.hit.assure.ImageCrop.TouchImageView
         android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

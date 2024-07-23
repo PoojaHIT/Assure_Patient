@@ -34,6 +34,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }*/
 
+
 }
 
 dependencies {
@@ -105,7 +106,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     //crop library
-    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+   // implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 
     //bouncy recylerview
     implementation 'com.chauthai.overscroll:overscroll-bouncy:0.1.1'

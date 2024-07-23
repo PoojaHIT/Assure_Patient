@@ -1,23 +1,22 @@
 package com.hit.assure.Adapter;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hit.assure.Activity.VirtualConsult.ConsultantDetailsActivity;
-import com.hit.assure.Model.DoctorSearch.DoctorConsultationDataList;
 import com.hit.assure.Model.DoctorSearch.DoctorListData;
 import com.hit.assure.Model.DoctorSearch.DoctorPracticesDataList;
-import com.hit.assure.Model.VirtualConsultant.DoctorPracticesData;
-import com.hit.assure.Model.VirtualConsultant.VirtualConsultantData;
+import com.hit.assure.Model.OrdeDoctorModel.OurDoctorListItem;
+import com.hit.assure.Model.OrdeDoctorModel.OurDoctorPracticesItem;
 import com.hit.assure.R;
 import com.squareup.picasso.Picasso;
 
@@ -25,19 +24,18 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SearchDoctorListingAdapter extends RecyclerView.Adapter<SearchDoctorListingAdapter.ViewHolder>
-{
+public class OurDoctorAdapter extends RecyclerView.Adapter<OurDoctorAdapter.ViewHolder>{
 
     //vars
     private Context mContext;
-    private List<DoctorListData>  doctorListData;
-   private List<DoctorPracticesDataList> doctorPracticesData;
+    private List<OurDoctorListItem> doctorListData;
+    private List<OurDoctorPracticesItem> doctorPracticesData;
     private String distance;
     private String clinic_name;
     private String clinic_id;
 
 
-    public SearchDoctorListingAdapter(Context mContext, List<DoctorListData> doctorListData) {
+    public OurDoctorAdapter(Context mContext, List<OurDoctorListItem> doctorListData) {
         this.mContext = mContext;
         this.doctorListData = doctorListData;
     }
@@ -55,24 +53,24 @@ public class SearchDoctorListingAdapter extends RecyclerView.Adapter<SearchDocto
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
 
-        Picasso.get()
+      /*  Picasso.get()
                 .load(doctorListData.get(position).getProfile_pic())
                 .fit()
                 .into(holder.img_userprofile);
+*/
+        Log.e("nameHello", doctorListData.get(position).getDoctorName());
 
-        Log.e("nameHello", doctorListData.get(position).getDoctor_name());
-
-        holder.txt_name.setText(doctorListData.get(position).getDoctor_name());
-        Log.e("name_search",doctorListData.get(position).getDoctor_name() );
-        holder.txt_exp.setText(doctorListData.get(position).getExperience()+ " years experience overall");
-        holder.txt_like.setText(doctorListData.get(position).getReview());
+        holder.txt_name.setText(doctorListData.get(position).getDoctorName());
+     //   holder.txt_exp.setText(doctorListData.get(position).getExperience()+ " years experience overall");
+      /*  holder.txt_like.setText(doctorListData.get(position).getReview());
         holder.txt_patients.setText(doctorListData.get(position).getRating());
-    //    holder.txt_fee_consultation.setText(" ~ ₹ " + doctorListData.get(position).getVideo_charge() +" "+ "Consultation Fees");
+      */  //    holder.txt_fee_consultation.setText(" ~ ₹ " + doctorListData.get(position).getVideo_charge() +" "+ "Consultation Fees");
 
-        distance = doctorListData.get(position).getDistance();
+      //  distance = doctorListData.get(position).getDistance();
 
+        holder.txt_bookappointment.setVisibility(View.VISIBLE);
 
-        if (Integer.parseInt(distance) >= 50){
+      /*  if (Integer.parseInt(distance) >= 50){
 
             holder.txt_bookappointment.setVisibility(View.VISIBLE);
             holder.txt_bookappointment.setVisibility(View.GONE);
@@ -81,24 +79,30 @@ public class SearchDoctorListingAdapter extends RecyclerView.Adapter<SearchDocto
             holder.txt_bookappointment.setVisibility(View.GONE);
             holder.txt_bookappointment.setVisibility(View.VISIBLE);
         }
+*/
 
-
-        doctorPracticesData = doctorListData.get(position).getDoctorPracticesData();
+        doctorPracticesData = doctorListData.get(position).getDoctorPractices();
         for (int i=0; i<doctorPracticesData.size(); i++){
 
-            Log.e("checkdata",doctorPracticesData.get(i).getClinic_city());
-            clinic_id = doctorPracticesData.get(i).getClinic_id();
-            clinic_name = doctorPracticesData.get(i).getClinic_name();
-            holder.txt_location.setText(doctorPracticesData.get(i).getClinic_city());
-            holder.txt_clinic_name.setText(doctorPracticesData.get(i).getClinic_name());
+            Log.e("checkdata",doctorPracticesData.get(i).getCity());
+            Log.e("getClinicName",doctorPracticesData.get(i).getClinicName());
+            clinic_id = doctorPracticesData.get(i).getDoctorId();
+            clinic_name = doctorPracticesData.get(i).getClinicName();
+            holder.txt_location.setText(doctorPracticesData.get(i).getCity());
+            holder.txt_clinic_name.setText(doctorPracticesData.get(i).getClinicName());
         }
 
         holder.txt_videoconsult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                mContext.startActivity(new Intent(mContext, ConsultantDetailsActivity.class).putExtra("drid", doctorListData.get(position).getDoctor_user_id())
-                        .putExtra("clinic_id", clinic_id).putExtra("clinic_name", clinic_name).putExtra("consultation_type", "online"));
+                Intent i=new Intent(mContext, ConsultantDetailsActivity.class);
+                i.putExtra("drid", doctorListData.get(position).getDoctorPractices().get(0).getDoctorId());
+                i.putExtra("clinic_id", clinic_id).putExtra("clinic_name", clinic_name);
+                i.putExtra("consultation_type", "online");
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                mContext.startActivity(i);
             }
         });
 
@@ -106,10 +110,16 @@ public class SearchDoctorListingAdapter extends RecyclerView.Adapter<SearchDocto
             @Override
             public void onClick(View v) {
 
-                mContext.startActivity(new Intent(mContext, ConsultantDetailsActivity.class).putExtra("drname", doctorListData.get(position).getDoctor_name())
-                        .putExtra("clinicname", clinic_name).putExtra("drImage", doctorListData.get(position).getProfile_pic()).putExtra("consultation_type", "visit")
-                        .putExtra("clinic_id", clinic_id).putExtra("drid", doctorListData.get(position).getDoctor_user_id()));
 
+                Intent i=new Intent(mContext, ConsultantDetailsActivity.class);
+                i.putExtra("drname", doctorListData.get(position).getDoctorName());
+                        i.putExtra("clinicname", clinic_name);
+                        i.putExtra("drImage", doctorListData.get(position).getDoctorPractices().get(0).getImage());
+                        i.putExtra("consultation_type", "visit");
+                       i .putExtra("clinic_id", clinic_id);
+                       i.putExtra("drid", doctorListData.get(position).getDoctorPractices().get(0).getDoctorId());
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(i);
 
             }
         });
@@ -128,13 +138,13 @@ public class SearchDoctorListingAdapter extends RecyclerView.Adapter<SearchDocto
 
 
         CircleImageView img_userprofile;
-        TextView  txt_name,txt_dr_type,txt_exp,txt_like,txt_patients,txt_location,txt_fee_consultation, txt_clinic_name,txt_bookappointment,txt_videoconsult;
-
+        TextView txt_name,txt_dr_type,txt_exp,txt_like,txt_patients,txt_location,txt_fee_consultation, txt_clinic_name,txt_bookappointment,txt_videoconsult;
+        LinearLayout ll_rating;
         public ViewHolder(View itemView) {
             super(itemView);
 
             img_userprofile = itemView.findViewById(R.id.img_userprofile);
-           // txt_fee_consultation = itemView.findViewById(R.id.txt_fee_consultation);
+            // txt_fee_consultation = itemView.findViewById(R.id.txt_fee_consultation);
             txt_dr_type = itemView.findViewById(R.id.txt_dr_type);
             txt_exp = itemView.findViewById(R.id.txt_exp);
             txt_like = itemView.findViewById(R.id.txt_like);
@@ -144,6 +154,8 @@ public class SearchDoctorListingAdapter extends RecyclerView.Adapter<SearchDocto
             txt_clinic_name = itemView.findViewById(R.id.txt_clinic_name);
             txt_bookappointment = itemView.findViewById(R.id.txt_bookappointment);
             txt_videoconsult = itemView.findViewById(R.id.txt_videoconsult);
+            ll_rating = itemView.findViewById(R.id.ll_rating);
+            ll_rating.setVisibility(View.GONE);
 
         }
     }

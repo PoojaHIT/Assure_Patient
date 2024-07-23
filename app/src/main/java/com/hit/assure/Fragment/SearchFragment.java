@@ -4,6 +4,7 @@ import static com.hit.assure.Retrofit.ServerCode.CATEGORIES;
 import static com.hit.assure.Retrofit.ServerCode.PRODUCTLIST;
 import static com.hit.assure.Retrofit.ServerCode.SEARCH;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,12 +27,16 @@ import com.hit.assure.Adapter.PrductsListingAdapter;
 import com.hit.assure.Adapter.SearchAdapter;
 import com.hit.assure.Model.Category.CategoryData;
 import com.hit.assure.Model.Category.CategoryResponse;
+import com.hit.assure.Model.DoctorSearch.DoctorListData;
 import com.hit.assure.Model.ProductList.ProductListData;
 import com.hit.assure.Model.ProductList.ProductListResponse;
 import com.hit.assure.Model.Search.SearchData;
 import com.hit.assure.Model.Search.SearchResponse;
 import com.hit.assure.R;
+import com.hit.assure.Retrofit.APIServices;
+import com.hit.assure.Retrofit.Requestor;
 import com.hit.assure.Retrofit.ServerResponse;
+import com.hit.assure.Util.PreferenceServices;
 
 import java.util.List;
 
@@ -48,11 +53,22 @@ public class SearchFragment extends Fragment implements ServerResponse {
     private ImageView img_search;
     private TextView txt;
 
+    private String userId;
+
+    private List<DoctorListData>  doctorListData;
+    public static APIServices apiServices;
+    private ProgressDialog progressDialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-//        new Requestor(CATEGORIES, this).getCategory();
-//        new Requestor(PRODUCTLIST, this).getProductList();
+       // new Requestor(CATEGORIES, this).getCategory();
+        //new Requestor(PRODUCTLIST, this).getProductList();
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setCancelable(false);
+
+        userId = PreferenceServices.getInstance().getUser_id();
         init(view);
         return view;
     }
@@ -81,7 +97,7 @@ public class SearchFragment extends Fragment implements ServerResponse {
         recycler_product.setNestedScrollingEnabled(false);
 
         img_search = view.findViewById(R.id.img_search);
-//        edt_search = view.findViewById(R.id.edt_search);
+        edt_search = view.findViewById(R.id.edt_search);
 
 //        img_search.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -102,9 +118,10 @@ public class SearchFragment extends Fragment implements ServerResponse {
     }
 
 
-//    void loadSearch(String keyword){
-//        new Requestor(SEARCH, this).getSearchResult(keyword);
-//    }
+
+    void loadSearch(String keyword){
+        new Requestor(SEARCH, this).getSearchResult(keyword);
+    }
 
     @Override
     public void onResume() {

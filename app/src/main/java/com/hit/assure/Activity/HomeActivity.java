@@ -30,6 +30,7 @@ import com.hit.assure.Fragment.ActiveFragment;
 import com.hit.assure.Fragment.BlogFragment;
 import com.hit.assure.Fragment.ChatFragment;
 import com.hit.assure.Fragment.HomeFragment;
+import com.hit.assure.Fragment.SearchDoctors;
 import com.hit.assure.Fragment.SearchFragment;
 import com.hit.assure.Model.UserDetails.UserDetailsData;
 import com.hit.assure.Model.UserDetails.UserDetailsResponse;
@@ -275,14 +276,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         else if(item_id== R.id.llSearch) {
+
             Fragment fragmentSearch = getSupportFragmentManager().findFragmentById(R.id.frameLayout_container);
+            if (!(fragmentSearch instanceof SearchDoctors)) {
+                Fragment fragment = new SearchDoctors();
+                FragmentTransaction transaction = HomeActivity.this.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frameLayout_container, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+           /* Fragment fragmentSearch = getSupportFragmentManager().findFragmentById(R.id.frameLayout_container);
             if (!(fragmentSearch instanceof ActiveFragment)) {
                 Fragment fragment = new ActiveFragment();
                 FragmentTransaction transaction = HomeActivity.this.getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frameLayout_container, fragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
-            }
+            }*/
         }
         else if(item_id== R.id.ll_product) {
 

@@ -225,11 +225,21 @@
         <activity
             android:name=".Activity.ApplicationFormActivity"
             android:exported="true" />
+
+        <activity
+            android:name=".Activity.MyJourney.PatientDetailsActivity"
+            android:exported="true" />
         <activity
             android:name=".Activity.MyProgressSessionImagesActivity"
             android:exported="true" />
         <activity
+            android:name=".Activity.SkinConsultationFormActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.ViewPrescriptionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.NutritionPlanFormActivity"
             android:exported="true" />
         <activity
             android:name=".Activity.GalleryActivity"

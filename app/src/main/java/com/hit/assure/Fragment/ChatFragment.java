@@ -34,6 +34,7 @@ import com.hit.assure.Activity.ChatActivity;
 import com.hit.assure.Activity.DietActivity;
 import com.hit.assure.Activity.HomeActivity;
 import com.hit.assure.Activity.NotificationActivity;
+import com.hit.assure.Activity.NutritionPlanFormActivity;
 import com.hit.assure.Activity.SkinAiActivity;
 import com.hit.assure.Activity.SkinAiImageActivity;
 import com.hit.assure.Activity.UploadSkinActivity;
@@ -501,6 +502,11 @@ public class ChatFragment extends Fragment implements View.OnClickListener {
         }
         else if(item_id== R.id.rl_hamburger) {
             drawerLayout.openDrawer(llDrawerLayout);
+        }
+        else if(item_id== R.id.img_notification) {
+            startActivity(new Intent(getActivity(), NotificationActivity.class));
+        }   else if(item_id== R.id.rl_nutritional) {
+            startActivity(new Intent(getActivity(), NutritionPlanFormActivity.class));
         }
         //  }
     }

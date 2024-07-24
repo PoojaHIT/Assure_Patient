@@ -87,10 +87,7 @@ public class NutritionPlanFormActivity extends AppCompatActivity implements View
         edtxt_specific_goals = findViewById(R.id.edtxt_specific_goals);
 
         recycler_nutritionist_help = findViewById(R.id.recycler_nutritionist_help);
-        recycler_nutritionist_help.setLayoutManager(new LinearLayoutManager(this));
-        recycler_nutritionist_help.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        adapter = new MultiAdapter(this, employees);
-        recycler_nutritionist_help.setAdapter(adapter);
+
         NutrituonHelplist nutrituonHelplist = new NutrituonHelplist("For optimum hair and skin health");
         employees.add(nutrituonHelplist);
         nutrituonHelplist = new NutrituonHelplist("Lose weight");
@@ -109,6 +106,12 @@ public class NutritionPlanFormActivity extends AppCompatActivity implements View
         employees.add(nutrituonHelplist);
         nutrituonHelplist = new NutrituonHelplist("Recovery from surgery");
         employees.add(nutrituonHelplist);
+
+        recycler_nutritionist_help.setLayoutManager(new LinearLayoutManager(this));
+        recycler_nutritionist_help.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        adapter = new MultiAdapter(this, employees);
+        recycler_nutritionist_help.setAdapter(adapter);
+
         adapter.notifyDataSetChanged();
 
 

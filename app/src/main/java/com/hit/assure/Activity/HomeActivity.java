@@ -135,6 +135,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         iv_product = findViewById(R.id.iv_product);
         iv_chat = findViewById(R.id.iv_chat);
         txt_name.setText(PreferenceServices.getInstance().getUser_name());
+        Log.d("","rrrrrrrrrrrrr 00 "+PreferenceServices.getInstance().getUser_name());
+
         if (!PreferenceServices.getInstance().getUser_mobile().isEmpty() && PreferenceServices.getInstance().getUser_mobile() != null) {
             txt_mobile.setText(PreferenceServices.getInstance().getUser_mobile());
             txt_mobile.setVisibility(View.VISIBLE);
@@ -391,6 +393,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     Picasso.get().load(Constant.UrlPath.USER_IMAGE + userDetailsDataList.get(i).getProfile_image())
                             .fit().into(img_userprofile);
                     txt_name.setText(userDetailsDataList.get(i).getName());
+                    PreferenceServices.getInstance().setUser_name(userDetailsDataList.get(i).getName());
+
                     txt_mobile.setVisibility(View.VISIBLE);
                     txt_mobile.setText(userDetailsDataList.get(i).getPhone());
 

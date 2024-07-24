@@ -27,9 +27,9 @@
                     android:id="@+id/img_userprofile"
                     android:layout_width="105dp"
                     android:layout_height="105dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:padding="10dp"
+                    android:background="@drawable/circleview"
+                    android:src="@drawable/user" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/img_video"

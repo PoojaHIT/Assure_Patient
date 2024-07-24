@@ -1,5 +1,7 @@
 package com.hit.assure.Fragment;
 
+import static com.hit.assure.Activity.HomeActivity.drawerLayout;
+import static com.hit.assure.Activity.HomeActivity.llDrawerLayout;
 import static com.hit.assure.Retrofit.ServerCode.DOCTORSEARCH;
 
 import android.app.ProgressDialog;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -49,6 +52,7 @@ public class SearchDoctors extends Fragment implements ServerResponse, View.OnCl
     public static APIServices apiServices;
     private ProgressDialog progressDialog;
     ImageView img_back;
+    RelativeLayout rl_hamburger;
 
 
     @Override
@@ -72,11 +76,13 @@ public class SearchDoctors extends Fragment implements ServerResponse, View.OnCl
 
         img_search = view.findViewById(R.id.img_search);
         edt_search = view.findViewById(R.id.edt_search);
+        rl_hamburger = view.findViewById(R.id.rl_hamburger);
         recyclerSearchProducts = view.findViewById(R.id.recyclerSearchProducts);
         recyclerSearchProducts.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerSearchProducts.setHasFixedSize(true);
         recyclerSearchProducts.setNestedScrollingEnabled(false);
         img_search.setOnClickListener(this);
+        rl_hamburger.setOnClickListener(this);
 
 
 
@@ -88,6 +94,9 @@ public class SearchDoctors extends Fragment implements ServerResponse, View.OnCl
 //                new Requestor(DOCTORSEARCH, this).getDoctorSearchList(userId,lat,loong,page,edt_search.getText().toString());
 
             searchData(userId, lat, loong, page, edt_search.getText().toString().trim());
+        }
+        else if(v.getId()== R.id.rl_hamburger) {
+            drawerLayout.openDrawer(llDrawerLayout);
         }
     }
 

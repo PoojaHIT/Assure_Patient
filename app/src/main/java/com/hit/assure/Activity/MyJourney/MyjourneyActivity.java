@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class MyjourneyActivity extends AppCompatActivity {
         ll_skin_treatment = findViewById(R.id.ll_skin_treatment);
 
         txt_username = findViewById(R.id.txt_username);
+
         txt_username.setText("Hello " + PreferenceServices.getInstance().getUser_name() + ", ");
 
         // skincare = 1,  haircare = 2,   nutrition = 3

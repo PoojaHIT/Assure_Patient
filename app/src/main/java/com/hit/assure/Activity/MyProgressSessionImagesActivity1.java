@@ -33,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MyProgressSessionImagesActivity extends AppCompatActivity {
+public class MyProgressSessionImagesActivity1 extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     public static APIServices apiServices;
@@ -85,7 +85,7 @@ public class MyProgressSessionImagesActivity extends AppCompatActivity {
                     if (resource.getResponseCode() == 200) {
                         if (!resource.getSessionimageData().isEmpty()) {
                             hideProgressDialog();
-                            SessionimageAdapter sessionimageAdapter = new SessionimageAdapter(MyProgressSessionImagesActivity.this, resource.getSessionimageData());
+                            SessionimageAdapter sessionimageAdapter = new SessionimageAdapter(MyProgressSessionImagesActivity1.this, resource.getSessionimageData());
                             rec_session_img.setAdapter(sessionimageAdapter);
                         } else {
                             hideProgressDialog();

@@ -77,6 +77,8 @@ public class DoctorlistActivity extends AppCompatActivity implements ServerRespo
 
     @Override
     public void success(Object o, int code) {
+        hideProgressDialog();
+
         switch (code) {
             case CURRENT_SESSION_DOCTORLIST:
                 CurrentSessionDoctorlistResponse response = (CurrentSessionDoctorlistResponse) o;
@@ -132,7 +134,7 @@ public class DoctorlistActivity extends AppCompatActivity implements ServerRespo
             holder.txt_doctor_name.setText(currentSessionDoctorlistData.get(position).getDoctor_name());
             holder.txt_specialization.setText(cat_name);
             if (!currentSessionDoctorlistData.get(position).getUser_image().isEmpty()) {
-                Picasso.get().load(currentSessionDoctorlistData.get(position).getUser_image()).into(holder.img_doctor);
+                Picasso.get().load(currentSessionDoctorlistData.get(position).getUser_image()).placeholder(R.drawable.user).into(holder.img_doctor);
             } else {
                 holder.img_doctor.setImageResource(R.drawable.user);
             }

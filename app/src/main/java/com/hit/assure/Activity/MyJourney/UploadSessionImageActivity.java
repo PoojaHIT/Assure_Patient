@@ -49,7 +49,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hit.assure.ImageCrop.CameraImageSave;
-import com.hit.assure.ImageCrop.ZoomCroppingActivity;
+import com.hit.assure.ImageCrop.ZoomCroppingActivityold;
 import com.hit.assure.Model.Note.NoteResponse;
 import com.hit.assure.Model.PatientBookingDetails.PatientBookingDetailsResponse;
 import com.hit.assure.Model.Prescriptionlist.Prescriprionlistdata;
@@ -68,7 +68,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -519,7 +518,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
 
                         Uri tempUri = getImageUri(UploadSessionImageActivity.this, bmp);
 
-                        Intent intent = new Intent(UploadSessionImageActivity.this, ZoomCroppingActivity.class);
+                        Intent intent = new Intent(UploadSessionImageActivity.this, ZoomCroppingActivityold.class);
                         intent.putExtra("imagepath", getPath(UploadSessionImageActivity.this, tempUri));
                         intent.putExtra("comingfrom", "gallery");
                         startActivityForResult(intent, REQUEST_CODE_POSTCROPGALLERY);
@@ -537,7 +536,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
 
                             Log.e("Gallerygsergbsedrf", strImagePath);
 
-                            Intent intent = new Intent(UploadSessionImageActivity.this, ZoomCroppingActivity.class);
+                            Intent intent = new Intent(UploadSessionImageActivity.this, ZoomCroppingActivityold.class);
                             intent.putExtra("imagepath", strImagePath);
                             intent.putExtra("comingfrom", "gallery");
                             startActivityForResult(intent, REQUEST_CODE_POSTCROPGALLERY);
@@ -714,6 +713,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
         call.enqueue(new Callback<NoteResponse>() {
             @Override
             public void onResponse(Call<NoteResponse> call, Response<NoteResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     NoteResponse noteResponse = response.body();
                     if (noteResponse.getResponseCode() == 200) {
@@ -721,7 +721,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
                         edtxt_doctor_note.setText(noteResponse.getNoteData().getNote());
                     } else {
                         ll_doctor_note.setVisibility(View.GONE);
-                        Toast.makeText(UploadSessionImageActivity.this, "" + noteResponse.getResponseMsg(), Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(UploadSessionImageActivity.this, "" + noteResponse.getResponseMsg(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -747,12 +747,13 @@ public class UploadSessionImageActivity extends AppCompatActivity {
         call.enqueue(new Callback<UploadSessionimageResponse>() {
             @Override
             public void onResponse(Call<UploadSessionimageResponse> call, Response<UploadSessionimageResponse> response) {
+                hideProgressDialog();
                 UploadSessionimageResponse resource = response.body();
                 if (resource.getResponseCode() == 200) {
                     hideProgressDialog();
-                    Toast.makeText(UploadSessionImageActivity.this, "" + resource.getResponseMsg(), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(UploadSessionImageActivity.this, "" + resource.getResponseMsg(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(UploadSessionImageActivity.this, "" + resource.getResponseMsg(), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(UploadSessionImageActivity.this, "" + resource.getResponseMsg(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -772,6 +773,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
         call.enqueue(new Callback<PrescriptionlistResponse>() {
             @Override
             public void onResponse(Call<PrescriptionlistResponse> call, Response<PrescriptionlistResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     PrescriptionlistResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {
@@ -804,6 +806,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UplodedPrescriptionResponse> call, Response<UplodedPrescriptionResponse> response) {
                 if (response.body() != null) {
+                    hideProgressDialog();
                     UplodedPrescriptionResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {
                         hideProgressDialog();
@@ -835,6 +838,7 @@ public class UploadSessionImageActivity extends AppCompatActivity {
         call.enqueue(new Callback<ViewDietplanPrescriptionResponse>() {
             @Override
             public void onResponse(Call<ViewDietplanPrescriptionResponse> call, Response<ViewDietplanPrescriptionResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     ViewDietplanPrescriptionResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {

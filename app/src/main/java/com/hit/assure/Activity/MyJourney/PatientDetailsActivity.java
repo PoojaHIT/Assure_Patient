@@ -102,6 +102,7 @@ public class PatientDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<PatientInfoResponse>() {
             @Override
             public void onResponse(Call<PatientInfoResponse> call, Response<PatientInfoResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     PatientInfoResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {
@@ -110,7 +111,7 @@ public class PatientDetailsActivity extends AppCompatActivity {
                         txt_patient_name.setText(doctor_name);
                         txt_treatname.setText(resource.getPatientInfoData().getTreatment());
                         strTreatmenttype = resource.getPatientInfoData().getTreatment();
-                        Picasso.get().load(doctor_img).into(img_userprofile);
+                        Picasso.get().load(doctor_img).placeholder(R.drawable.user).into(img_userprofile);
                         if (resource.getPatientInfoSessionlistList() != null && !resource.getPatientInfoSessionlistList().isEmpty()) {
                             SessionlistAdapter sessionlistAdapter = new SessionlistAdapter(PatientDetailsActivity.this, resource.getPatientInfoSessionlistList());
                             recycler_sessionlist.setAdapter(sessionlistAdapter);

@@ -128,7 +128,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         txt_view_all_images.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ViewPrescriptionActivity.this, MyProgressSessionImagesActivity.class)
+                startActivity(new Intent(ViewPrescriptionActivity.this, MyProgressSessionImagesActivity1.class)
                         .putExtra("patient_id", patient_id)
                 );
             }
@@ -143,6 +143,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         call.enqueue(new Callback<PatientBookingDetailsResponse>() {
             @Override
             public void onResponse(Call<PatientBookingDetailsResponse> call, Response<PatientBookingDetailsResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     PatientBookingDetailsResponse resource = response.body();
 
@@ -185,6 +186,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         call.enqueue(new Callback<NoteResponse>() {
             @Override
             public void onResponse(Call<NoteResponse> call, Response<NoteResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     NoteResponse noteResponse = response.body();
                     if (noteResponse.getResponseCode() == 200) {
@@ -212,6 +214,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         call.enqueue(new Callback<PrescriptionlistResponse>() {
             @Override
             public void onResponse(Call<PrescriptionlistResponse> call, Response<PrescriptionlistResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     PrescriptionlistResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {
@@ -243,6 +246,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         call.enqueue(new Callback<UplodedPrescriptionResponse>() {
             @Override
             public void onResponse(Call<UplodedPrescriptionResponse> call, Response<UplodedPrescriptionResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     UplodedPrescriptionResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {
@@ -272,6 +276,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         call.enqueue(new Callback<SessionimageResponse>() {
             @Override
             public void onResponse(Call<SessionimageResponse> call, Response<SessionimageResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     SessionimageResponse resource = response.body();
                     if (resource.getResponseCode() == 200) {
@@ -303,6 +308,7 @@ public class ViewPrescriptionActivity extends AppCompatActivity {
         call.enqueue(new Callback<OnlyResponse>() {
             @Override
             public void onResponse(Call<OnlyResponse> call, Response<OnlyResponse> response) {
+                hideProgressDialog();
                 if (response.body() != null) {
                     OnlyResponse resource = response.body();
                     if (resource.getResponseCode().equals("200")) {

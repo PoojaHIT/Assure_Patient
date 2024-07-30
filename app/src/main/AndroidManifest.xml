@@ -31,6 +31,8 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assure"
+        android:requestLegacyExternalStorage="true"
+
         android:usesCleartextTraffic="true">
         <activity
             android:name=".Activity.PrecriptionDetailsPage"
@@ -230,8 +232,15 @@
             android:name=".Activity.MyJourney.PatientDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".Activity.MyProgressSessionImagesActivity"
+            android:name=".Activity.MyProgressSessionImagesActivity1"
             android:exported="true" />
+        <activity
+            android:name=".Activity.MyJourney.UploadSessionImageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.MyJourney.MyProgressSessionImagesActivity"
+            android:exported="true" />
+
         <activity
             android:name=".Activity.SkinConsultationFormActivity"
             android:exported="true" />
@@ -249,6 +258,9 @@
             android:exported="true" />
         <activity
             android:name=".Util.ZoomCroppingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImageCrop.ZoomCroppingActivityold"
             android:exported="false" />
         <meta-data
             android:name="com.facebook.sdk.ClientToken"

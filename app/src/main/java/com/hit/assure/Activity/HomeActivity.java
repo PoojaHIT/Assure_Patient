@@ -380,6 +380,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        new Requestor(UPDATEUSERDATA, this).getUserdata(userId);
+    }
+
+    @Override
     public void success(Object o, int code) {
         hideProgressDialog();
         switch (code) {

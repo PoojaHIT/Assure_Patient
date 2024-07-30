@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class ZoomCroppingActivity extends Activity {
+public class ZoomCroppingActivityold extends Activity {
 
     TouchImageView cropView;
     LinearLayout btnDoneCropping;
@@ -101,7 +101,7 @@ public class ZoomCroppingActivity extends Activity {
             }
         }
 
-        Utils u = new Utils(ZoomCroppingActivity.this);
+        Utils u = new Utils(ZoomCroppingActivityold.this);
         dpi = u.getScreenDPI();
 
         screenDimen = u.calculateScreenDimen();
@@ -143,7 +143,7 @@ public class ZoomCroppingActivity extends Activity {
                         finish();
 //						}
                     } else {
-                        Toast.makeText(ZoomCroppingActivity.this, "The image wasnt loaded properly", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ZoomCroppingActivityold.this, "The image wasnt loaded properly", Toast.LENGTH_LONG).show();
                         Intent i = new Intent();
                         setResult(RESULT_CANCELED, i);
                         finish();
@@ -191,7 +191,7 @@ public class ZoomCroppingActivity extends Activity {
 
 
     public Bitmap getThumbnail(Uri uri, int THUMBNAIL) throws FileNotFoundException, IOException {
-        InputStream input = ZoomCroppingActivity.this.getContentResolver().openInputStream(uri);
+        InputStream input = ZoomCroppingActivityold.this.getContentResolver().openInputStream(uri);
 
         BitmapFactory.Options onlyBoundsOptions = new BitmapFactory.Options();
         onlyBoundsOptions.inJustDecodeBounds = true;
@@ -212,7 +212,7 @@ public class ZoomCroppingActivity extends Activity {
         bitmapOptions.inDither = true;
         bitmapOptions.inPreferredConfig = Bitmap.Config.RGB_565;
 
-        input = ZoomCroppingActivity.this.getContentResolver().openInputStream(uri);
+        input = ZoomCroppingActivityold.this.getContentResolver().openInputStream(uri);
         Bitmap bitmap = BitmapFactory.decodeStream(input, null, bitmapOptions);
 
 

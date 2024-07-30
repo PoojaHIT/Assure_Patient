@@ -66,19 +66,27 @@ public class OurDoctorAdapter extends RecyclerView.Adapter<OurDoctorAdapter.View
         holder.txt_patients.setText(doctorListData.get(position).getRating());
         //    holder.txt_fee_consultation.setText(" ~ ₹ " + doctorListData.get(position).getVideo_charge() +" "+ "Consultation Fees");
 
+
         distance = doctorListData.get(position).getDistance();
 
+        if(distance==null)
+        {
+
+        }
+        else {
+            if (Integer.parseInt(distance) >= 50){
+
+                holder.txt_bookappointment.setVisibility(View.VISIBLE);
+                holder.txt_bookappointment.setVisibility(View.GONE);
+
+            }else {
+                holder.txt_bookappointment.setVisibility(View.GONE);
+                holder.txt_bookappointment.setVisibility(View.VISIBLE);
+            }
+        }
         holder.txt_bookappointment.setVisibility(View.VISIBLE);
 
-        if (Integer.parseInt(distance) >= 50){
 
-            holder.txt_bookappointment.setVisibility(View.VISIBLE);
-            holder.txt_bookappointment.setVisibility(View.GONE);
-
-        }else {
-            holder.txt_bookappointment.setVisibility(View.GONE);
-            holder.txt_bookappointment.setVisibility(View.VISIBLE);
-        }
 
         doctorPracticesData = doctorListData.get(position).getDoctorPractices();
         for (int i=0; i<doctorPracticesData.size(); i++){
